@@ -3,7 +3,9 @@
 ## Requirements
 Have docker installed
 
-Have migrate installed
+Have [Go Migrate](https://github.com/golang-migrate/migrate) installed
+
+Have [SQLC](https://sqlc.dev/) installed
 
 ## First Steps
 

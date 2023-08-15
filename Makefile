@@ -21,9 +21,12 @@ connect:
 	docker exec -it postgre bash
 
 migrateup:
-	migrate -path DataBase/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
+	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
 
 migratedown:
-	migrate -path DataBase/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
+	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
 
-.PHONY: postgres destroy start stop createdb dropdb connect migrateup migratedown
+sqlc:
+	sqlc generate
+
+.PHONY: postgres destroy start stop createdb dropdb connect migrateup migratedown sqlc
